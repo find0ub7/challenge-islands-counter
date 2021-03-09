@@ -1,29 +1,14 @@
-#!/usr/bin/env groovy
-
-def pipeline() {
-    echo 'Pipeline called'
-}
-
-def production() {
-    echo 'Production called'
-}
-
-def pullRequest() {
-    echo 'Pull Request called'
-}
-
 pipeline {
     agent any
     stages {
         stage('Build') {
             steps {
-                echo "env.jobType"
                 if (env.jobType == "pipeline") {
-                    load("Jenkinsfile").pipeline()
+                    echo 'Pipeline called'
                     } else if (env.jobType == "production") {
-                    load("Jenkinsfile").production()
+                    echo 'Production called'
                     } else {
-                    load("Jenkinsfile").pullRequest()
+                    echo 'Pull Request called'
                     }
             }
         }
@@ -46,6 +31,4 @@ pipeline {
             echo 'For example, if the Pipeline was previously failing but is now successful'
         }
     }
-
-
 }
