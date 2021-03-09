@@ -1,12 +1,14 @@
-def pipeline {
+#!/usr/bin/env groovy
+
+def pipeline() {
     echo 'Pipeline called'
 }
 
-def production {
+def production() {
     echo 'Production called'
 }
 
-def pullrequest {
+def pullRequest() {
     echo 'Pull Request called'
 }
 
@@ -17,11 +19,11 @@ pipeline {
             steps {
                 echo "Env.jobType: " + env.jobType
                 if (env.jobType == "pipeline") {
-                      load("Jenkinsfile").pipeline()
+                    load("Jenkinsfile").pipeline()
                     } else if (env.jobType == "production") {
-                      load("Jenkinsfile").production()
+                    load("Jenkinsfile").production()
                     } else {
-                      load("Jenkinsfile").pullRequest()
+                    load("Jenkinsfile").pullRequest()
                     }
             }
         }
