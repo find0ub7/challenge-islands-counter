@@ -1,9 +1,16 @@
 pipeline {
     agent any
     stages {
-        stage('BUild') {
+        stage('Build') {
             steps {
-                sh 'echo "Build done"'
+                echo "Env.jobType: " + env.jobType
+                if (env.jobType == "pipeline") {
+                      load("Jenkinsfile").pipeline()
+                    } else if (env.jobType == "production") {
+                      load("Jenkinsfile").production()
+                    } else {
+                      load("Jenkinsfile").pullRequest()
+                    }
             }
         }
     }
@@ -24,5 +31,17 @@ pipeline {
             echo 'This will run only if the state of the Pipeline has changed'
             echo 'For example, if the Pipeline was previously failing but is now successful'
         }
+    }
+
+    def pipeline {
+        echo 'Pipeline called'
+    }
+
+    def production {
+        echo 'Production called'
+    }
+
+    def pullrequest {
+        echo 'Pull Request called'
     }
 }
