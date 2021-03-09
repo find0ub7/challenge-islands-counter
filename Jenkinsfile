@@ -17,7 +17,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "Env.jobType: " + env.jobType
+                echo "env.jobType"
                 if (env.jobType == "pipeline") {
                     load("Jenkinsfile").pipeline()
                     } else if (env.jobType == "production") {
