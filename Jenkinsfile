@@ -1,3 +1,15 @@
+def pipeline {
+    echo 'Pipeline called'
+}
+
+def production {
+    echo 'Production called'
+}
+
+def pullrequest {
+    echo 'Pull Request called'
+}
+
 pipeline {
     agent any
     stages {
@@ -33,15 +45,5 @@ pipeline {
         }
     }
 
-    def pipeline {
-        echo 'Pipeline called'
-    }
 
-    def production {
-        echo 'Production called'
-    }
-
-    def pullrequest {
-        echo 'Pull Request called'
-    }
 }
