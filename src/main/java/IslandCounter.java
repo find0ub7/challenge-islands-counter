@@ -1,5 +1,5 @@
 public class IslandCounter {
-  erro de compilacao
+  erro de compilacao x
   public static int count(final int[][] matrix) {
     int count = 0;
     int [][] visitedPositions = new int[matrix.length][matrix[0].length];
