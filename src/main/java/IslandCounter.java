@@ -1,5 +1,6 @@
 public class IslandCounter {
   public static int count(final int[][] matrix) {
+//    asdasdasdf
     int count = 0;
     int [][] visitedPositions = new int[matrix.length][matrix[0].length];
 
