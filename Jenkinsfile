@@ -9,7 +9,7 @@ node {
         echo 'Pull Request steps called?'
         stage("Build Pull Request") {
             sh "echo Building..."
-            sh "exit 1"
+            sh "exit 0"
         }
     }
 }
