@@ -7,7 +7,7 @@ node {
         echo 'Pull Request steps called'
         stage("Build PR") {
             sh "echo Building...."
-            sh "exit 0"
+            sh "exit 1"
         }
     }
 }
